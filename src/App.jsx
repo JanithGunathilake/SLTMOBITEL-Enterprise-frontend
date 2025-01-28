@@ -65,7 +65,7 @@ const RegistrationForm = () => {
 
     // Check if the mobile number is already registered
     try {
-      const checkResponse = await axios.post("http://localhost:5000/check-contact", {
+      const checkResponse = await axios.post("http://sltmobitelback.brandcorridor.lk/check-contact", {
         contact: formData.contact,
       });
 
@@ -82,7 +82,7 @@ const RegistrationForm = () => {
       }
 
       // If not registered, proceed with registration
-      const response1 = await axios.post("http://localhost:5000/register", formData);
+      const response1 = await axios.post("http://sltmobitelback.brandcorridor.lk/register", formData);
       if (response1.status === 200) {
         const response2 = await axios.post("https://raffledraw.brandcorridor.lk/add-data", {
           gcCode: formData.name, // Name as gcCode
